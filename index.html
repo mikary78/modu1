@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>코딩 모르는 직장인의 AI 개발기</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* 1. SETUP & CORE DESIGN */
+        * { box-sizing: border-box; }
+        body {
+            background-color: #0f172a;
+            display: grid;
+            gap: 40px;
+            grid-template-columns: 1fr;
+            margin: 0;
+            min-height: 100vh;
+            padding: 40px 0;
+            place-items: center;
+        }
+
+        .slide-container {
+            align-items: center;
+            background-color: #020617;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            font-family: 'Pretendard', sans-serif;
+            height: 720px;
+            justify-content: center;
+            overflow: hidden;
+            padding: 60px;
+            position: relative;
+            width: 1280px;
+            color: #f8fafc;
+        }
+
+        /* Consistent Background Design */
+        .slide-container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 80% 20%, rgba(34, 211, 238, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 20% 80%, rgba(30, 64, 175, 0.05) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .slide-container > * { position: relative; z-index: 1; }
+
+        /* 2. TYPOGRAPHY & TITLES */
+        .slide-container h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 64px;
+            color: #22d3ee;
+            text-align: center;
+            margin: 0 0 20px 0;
+            line-height: 1.1;
+        }
+
+        .slide-container .slide-title {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: left;
+            width: 100%;
+            color: #22d3ee;
+            border-left: 8px solid #22d3ee;
+            padding-left: 20px;
+        }
+
+        .slide-container h3 { font-size: 28px; margin-bottom: 15px; color: #94a3b8; font-weight: 400; }
+        .slide-container p, .slide-container li { font-size: 20px; line-height: 1.5; color: #cbd5e1; }
+        
+        .content-area {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: center;
+            width: 100%;
+        }
+
+        /* 3. LAYOUT SPECIFICS */
+        .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; width: 100%; }
+        
+        .tiled-content { display: flex; gap: 30px; width: 100%; }
+        .tile {
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(34, 211, 238, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            flex: 1;
+            text-align: center;
+        }
+
+        .image-wrapper { border-radius: 16px; overflow: hidden; height: 380px; border: 1px solid #1e293b; background: #000; }
+        .image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* CTA Link Button */
+        .cta-link {
+            display: inline-flex;
+            align-items: center;
+            background: #22d3ee;
+            color: #020617;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            margin-top: 20px;
+            transition: opacity 0.2s;
+        }
+        .cta-link i { margin-left: 10px; }
+
+        /* Bleed Image Layout Adjustment */
+        .slide-container.bleed-image-layout { 
+            display: grid; 
+            grid-template-columns: repeat(2, minmax(0, 1fr)); 
+            padding: 0; 
+            align-items: start; 
+        }
+        .bleed-image-layout .content-container { padding: 60px; display: flex; flex-direction: column; justify-content: center; height: 100%; }
+        .bleed-image-layout .image-container { height: 720px; overflow: hidden; }
+        .bleed-image-layout img.bleed-image-side { width: 100%; height: 720px; object-fit: cover; }
+
+        /* Highlight Metrics */
+        .highlight-numbers-layout .number { font-size: 110px; font-weight: 700; color: #22d3ee; font-family: 'Orbitron'; line-height: 1; }
+    </style>
+</head>
+<body>
+
+<!-- Slide 1: Title Slide -->
+<div class="slide-container" id="slide1">
+    <div class="content-area">
+        <h3 style="letter-spacing: 4px; color: #22d3ee; margin-bottom: 10px;">VIBE CODING PROJECT</h3>
+        <h1>코딩? 아무것도 모르던<br>직장인의 AI 서비스 개발기</h1>
+        <p style="font-size: 24px; color: #94a3b8; margin-top: 20px;">모두의연구소 | 김성제 (mikary@naver.com)</p>
+    </div>
+</div>
+
+<!-- Slide 2: Section 01 -->
+<div class="slide-container" id="slide2">
+    <div class="content-area" style="text-align: center;">
+        <div style="width: 100px; height: 4px; background: #22d3ee; margin-bottom: 40px;"></div>
+        <h2 style="font-size: 80px; margin: 0; color: #22d3ee;">01. 바이브코딩?!</h2>
+        <p style="font-size: 32px; margin-top: 20px; color: #94a3b8;">시작의 계기 & 가장 필요한 끈기</p>
+    </div>
+</div>
+
+<!-- Slide 3: Motivation -->
+<div class="slide-container" id="slide3">
+    <h2 class="slide-title">지속적으로 내게 던진 질문</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div class="tile" style="text-align: left;">
+                <h3 style="color: #22d3ee; font-weight: 700;"><i class="fa-solid fa-circle-question" style="margin-right: 15px;"></i>홀로서기 질문</h3>
+                <p>내 명함에서 '회사'의 이름을 지운다면?<br>퇴사 후에도 계속 경제활동을 할 수 있을까?</p>
+            </div>
+            <div class="tile" style="text-align: left;">
+                <h3 style="color: #22d3ee; font-weight: 700;"><i class="fa-solid fa-bolt" style="margin-right: 15px;"></i>시작의 동기</h3>
+                <p>답답해서!! 나도 할 수 있겠는데?<br>해결하려는 의지가 기술보다 앞서야 합니다.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 4: Tools -->
+<div class="slide-container" id="slide4">
+    <h2 class="slide-title">활용 도구: AI Tech Stack</h2>
+    <div class="content-area">
+        <div class="tiled-content">
+            <div class="tile">
+                <i class="fa-solid fa-robot" style="font-size: 40px; color: #22d3ee; margin-bottom: 20px;"></i>
+                <h3>Models</h3>
+                <p>Claude, ChatGPT, Gemini<br>Google AI Studio</p>
+            </div>
+            <div class="tile">
+                <i class="fa-solid fa-code-branch" style="font-size: 40px; color: #22d3ee; margin-bottom: 20px;"></i>
+                <h3>Platforms</h3>
+                <p>VS Code, Github, Render<br>MS Azure</p>
+            </div>
+            <div class="tile">
+                <i class="fa-solid fa-wand-magic" style="font-size: 40px; color: #22d3ee; margin-bottom: 20px;"></i>
+                <h3>AI Helpers</h3>
+                <p>Genspark, Lovable<br>Antigravity</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 5: Project 1 - Autopilot (Bleed Image Right) -->
+<div class="slide-container bleed-image-layout" id="slide5">
+    <div class="content-container">
+        <h2 class="slide-title">Autopilot</h2>
+        <p style="font-size: 24px; color: #f8fafc; font-weight: 700;">교육 콘텐츠 자동 생성 플랫폼</p>
+        <p>기획 브리프 입력만으로 커리큘럼부터 슬라이드까지 36시간 만에 완성하는 자동화 시스템.</p>
+        <div style="margin: 20px 0; border-left: 4px solid #22d3ee; padding-left: 20px;">
+            <p style="font-size: 18px; color: #94a3b8; margin: 0;">Link</p>
+            <p style="font-size: 16px; color: #22d3ee; margin: 5px 0;">icy-forest-03cc7cb00.1.azurestaticapps.net</p>
+        </div>
+        <a href="https://icy-forest-03cc7cb00.1.azurestaticapps.net" class="cta-link">서비스 바로가기 <i class="fa-solid fa-external-link"></i></a>
+    </div>
+    <div class="image-container">
+        <img class="bleed-image-side" src="http://googleusercontent.com/image_collection/image_retrieval/16825035664422913394" alt="Autopilot Interface">
+    </div>
+</div>
+
+<!-- Slide 6: Project 2 - MonoDesk (Image Right Text Left) -->
+<div class="slide-container" id="slide6">
+    <h2 class="slide-title">MonoDesk: 경영 관리</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <h3>여남동 경영 관리 솔루션</h3>
+                <p>매출 분석, 리포트 생성, 세무/회계 데이터 매칭 등 복잡한 실무를 AI로 자동화했습니다.</p>
+                <div style="margin: 25px 0;">
+                    <p style="font-size: 16px; color: #22d3ee; margin: 0 0 5px 0;"><i class="fa-solid fa-link"></i> Dashboard Access</p>
+                    <p style="font-size: 14px; color: #64748b; margin: 0;">monodesk-frontend.onrender.com/login</p>
+                </div>
+                <a href="https://monodesk-frontend.onrender.com/login" class="cta-link" style="background: #334155; color: #22d3ee; border: 1px solid #22d3ee;">데모 로그인 <i class="fa-solid fa-right-to-bracket"></i></a>
+            </div>
+            <div class="image-wrapper">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/5088454207818976985" alt="MonoDesk Dashboard" style="object-fit: contain; padding: 20px;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 7: Value of Challenge -->
+<div class="slide-container" id="slide7">
+    <h2 class="slide-title">40대의 가치 있는 도전</h2>
+    <div class="content-area">
+        <div class="two-column highlight-numbers-layout" style="align-items: center;">
+            <div style="text-align: center;">
+                <div class="number">70%</div>
+                <p style="font-size: 24px; color: #94a3b8; font-weight: 700; margin-top: 10px;">리드타임 단축</p>
+            </div>
+            <div class="tile" style="text-align: left;">
+                <h3>"생각이 실현되는 경험"</h3>
+                <p>나의 경험과 경력이 의미있음을 알게 됩니다.<br>AI는 완벽하지 않기에, 수많은 오류를 뚫고 나갈 <strong>인내</strong>가 가장 강력한 무기입니다.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 8: Vibe Coding Strategy -->
+<div class="slide-container" id="slide8">
+    <h2 class="slide-title">바이브코딩 핵심 전략</h2>
+    <div class="content-area">
+        <div class="tiled-content">
+            <div class="tile">
+                <i class="fa-solid fa-microscope" style="font-size: 32px; color: #22d3ee; margin-bottom: 15px;"></i>
+                <h3 style="font-size: 22px; color: #f8fafc;">최소 도구 실험</h3>
+                <p style="font-size: 16px;">AI로 개발 시간을 줄이고 '이게 되네'라는 성공 경험을 쌓으세요.</p>
+            </div>
+            <div class="tile">
+                <i class="fa-solid fa-arrows-spin" style="font-size: 32px; color: #22d3ee; margin-bottom: 15px;"></i>
+                <h3 style="font-size: 22px; color: #f8fafc;">반복 루프</h3>
+                <p style="font-size: 16px;">설계 > 개발 > 테스트의 반복을 통해 완성도를 높입니다.</p>
+            </div>
+            <div class="tile">
+                <i class="fa-solid fa-users-viewfinder" style="font-size: 32px; color: #22d3ee; margin-bottom: 15px;"></i>
+                <h3 style="font-size: 22px; color: #f8fafc;">확실한 목적</h3>
+                <p style="font-size: 16px;">무엇을 만들고 싶은지 명확한 결과물을 먼저 상상하세요.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 9: Q&A / Closing -->
+<div class="slide-container" id="slide9">
+    <div class="content-area" style="text-align: center;">
+        <h1 style="font-size: 84px; letter-spacing: -2px;">THANK YOU</h1>
+        <p style="font-size: 32px; color: #22d3ee; font-weight: 700; margin-top: 20px;">하지 않을 이유가 없습니다!</p>
+        <div style="margin-top: 50px; color: #64748b; font-size: 18px;">
+            <p>김성제 | mikary@naver.com</p>
+            <p>2026. 06. 23 | 모두의연구소</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
